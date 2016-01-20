@@ -37,10 +37,10 @@ void ABoidManager::Tick( float DeltaTime ) {
 
 	for (auto i = 0; i < boids.Num(); ++i) {
 		boids[i]->velocity = (boids[i]->velocity
-			+ (ABoidManager::Rule1(boids[i]) * CohesionWeight).ClampMaxSize(CohesionClamp)
-			+ (ABoidManager::Rule2(boids[i]) * AvoidWeight).ClampMaxSize(AvoidClamp)
-			+ (ABoidManager::Rule3(boids[i]) * AlignWeight).ClampMaxSize(AlignClamp)
-			+ (ABoidManager::Rule4(boids[i])* BoundsWeight).ClampMaxSize(BoundsClamp)
+			+ (ABoidManager::Rule1(boids[i]) * CohesionWeight).GetClampedToMaxSize(CohesionClamp)
+			+ (ABoidManager::Rule2(boids[i]) * AvoidWeight).GetClampedToMaxSize(AvoidClamp)
+			+ (ABoidManager::Rule3(boids[i]) * AlignWeight).GetClampedToMaxSize(AlignClamp)
+			+ (ABoidManager::Rule4(boids[i])* BoundsWeight).GetClampedToMaxSize(BoundsClamp)
 			);
 	}
 }

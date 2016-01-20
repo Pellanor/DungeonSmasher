@@ -1,0 +1,29 @@
+Dynamic Factions
+
+We need a number of factions to poulate the world. I want those to be dynamically generated in the future, but for now I should write out some so I know what kind of output I want.
+
+The Other
+	- An outsider faction. Wants to get in.
+	- Can also be The Trapped
+	- Gives power at a cost.
+	- What is the cost?
+	- How does it get in?
+	- Generate a web of "weak points" accross the map where bad shit can happen.
+	- Ressurection!!!!!!! There's permadeath, unless you make a pact with the Other! Things tend to get worse every time you're brought back though...
+
+The Pactforged
+	- Takes power from the Outsider, but uses it for her own purposes
+
+The Deciever
+	- Acts like a good guy, actually draws power from the Other
+	
+The Cusader
+	- Wants to eliminate the Other
+	- May not know of the Other, and is focused on the Pactforged
+
+
+What are some other intersting locations or NPC quests?
+
+tropes from games:
+	- Go to temples to collect the elemental things
+	- 
