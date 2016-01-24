@@ -22,8 +22,9 @@ public:
 
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* InputComponent) override;
-
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Zone of Control")
-		float zone_str;
 	
+	// Call to see how much threat the ability represents
+	UFUNCTION(BlueprintCallable, Category = "Zone of Control")
+	virtual float Threat(FVector Location);
+
 };

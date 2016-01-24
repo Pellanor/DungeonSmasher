@@ -2,8 +2,8 @@
 
 #include "DungeonSmasher.h"
 #include "Minion.h"
-#include "AI/Navigation/NavigationSystem.h"
 #include "DrawDebugHelpers.h"
+#include "AI/Navigation/NavigationSystem.h"
 
 // Sets default values
 AMinion::AMinion()

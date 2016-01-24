@@ -4,6 +4,8 @@
 #include "ZoneOfControlCharacter.h"
 #include "Ability.h"
 #include <DrawDebugHelpers.h>
+#include "AI/Navigation/NavigationSystem.h"
+#include "AI/Navigation/NavigationPath.h"
 
 
 // Sets default values
@@ -49,3 +51,22 @@ void AZoneOfControlCharacter::SetupPlayerInputComponent(class UInputComponent* I
 
 }
 
+// Call to see how much threat the character represents
+float AZoneOfControlCharacter::Threat(FVector Location) {
+	AController* controller = GetController();
+	auto const NavSys = UNavigationSystem::GetCurrent(controller);
+	auto path = NavSys->FindPathToLocationSynchronously(GetWorld(), Location, GetActorLocation());
+
+
+	float threat = 0.0;
+	TArray<UAbility*> abilities;
+	GetComponents(abilities);
+	for (auto ability : abilities) {
+		if (!ability->onCD) {
+			if (path->GetPathLength() <= ability->range) {
+				threat += ability->damage;
+			}
+		}
+	}
+	return threat;
+}
