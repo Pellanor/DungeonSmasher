@@ -23,7 +23,7 @@ class DUNGEONSMASHER_API UMapTile : public UObject
 {
 	GENERATED_BODY()
 	
-	
-	
-	
+public:
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (DisplayName = "Tile Type", ExposeOnSpawn = true))
+		TILE_TYPE type;
 };
