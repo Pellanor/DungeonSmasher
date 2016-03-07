@@ -3,9 +3,11 @@
 #pragma once
 
 #include "Object.h"
-#include "Agent.h"
 
 #include "Action.generated.h"
+
+//Forward declaring as the Action needs to have access to the Agent.
+class AAgent;
 
 /**
  * 

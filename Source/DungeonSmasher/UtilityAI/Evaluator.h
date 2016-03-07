@@ -21,6 +21,9 @@ class DUNGEONSMASHER_API IEvaluator : public IInterface
 	GENERATED_IINTERFACE_BODY()
 
 public:
-	virtual void Evaluate() = 0;
+	// To be able to access this using IEvaluator::Execute_Evaluate() it needs to be a BlueprintImplementableEvent
+	// TO be a BlueprintImplementableEvent it cannot be virtual.
+	UFUNCTION(BlueprintImplementableEvent)
+	float Evaluate(float Val);
 };
 

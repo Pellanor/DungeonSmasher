@@ -4,7 +4,7 @@
 #include "UCurveEvaluator.h"
 
 
-void UUCurveEvaluator::Evaluate() {
-	Curve->GetFloatValue(0.5);
+float UUCurveEvaluator::Evaluate(float Val) {
+	return Curve->GetFloatValue(Val);
 }
 

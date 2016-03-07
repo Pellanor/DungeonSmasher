@@ -3,6 +3,7 @@
 #pragma once
 
 #include "GameFramework/Character.h"
+#include "Consideration.h"
 #include "Agent.generated.h"
 
 UCLASS()
@@ -25,5 +26,8 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	FVector GoalLocation;
-	
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	TArray<UConsideration*> Considerations;
+
 };

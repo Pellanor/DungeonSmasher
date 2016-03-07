@@ -22,7 +22,5 @@ public:
 	// UE4 Doesn't allow properties to be interfaces, so I'll need to cast this when I use it.
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	UObject* TheEvaluator;
-
-	
 	
 };
