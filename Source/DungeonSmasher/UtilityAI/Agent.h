@@ -28,6 +28,6 @@ public:
 	FVector GoalLocation;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	TArray<UConsideration*> Considerations;
+	TArray< TSubclassOf<UConsideration> > Considerations;
 
 };

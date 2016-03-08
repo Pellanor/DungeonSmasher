@@ -16,11 +16,11 @@ class DUNGEONSMASHER_API UConsideration : public UObject
 	GENERATED_BODY()
 	
 public:
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (DisplayName = "Action", ExposeOnSpawn = true))
 	UAction* TheAction;
 
 	// UE4 Doesn't allow properties to be interfaces, so I'll need to cast this when I use it.
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (DisplayName = "Evaluator", ExposeOnSpawn = true))
 	UObject* TheEvaluator;
 	
 };
