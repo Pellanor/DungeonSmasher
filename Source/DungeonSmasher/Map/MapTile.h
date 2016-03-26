@@ -25,5 +25,5 @@ class DUNGEONSMASHER_API UMapTile : public UObject
 	
 public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (DisplayName = "Tile Type", ExposeOnSpawn = true))
-		TILE_TYPE type;
+	TILE_TYPE type;
 };

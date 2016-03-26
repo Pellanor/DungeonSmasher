@@ -33,3 +33,17 @@ void AAgent::SetupPlayerInputComponent(class UInputComponent* InputComponent)
 
 }
 
+UAction* AAgent::ChooseAction()
+{
+	for (auto Con : this->Considerations)
+	{
+		Con.GetDefaultObject()->Evaluate();
+	}
+
+	this->Considerations.Sort([](const TSubclassOf<UConsideration>& lhs, const TSubclassOf<UConsideration>& rhs)
+	{
+		return lhs.GetDefaultObject()->Score > rhs.GetDefaultObject()->Score;
+	});
+
+	return this->Considerations.GetData()->GetDefaultObject()->TheAction;
+}

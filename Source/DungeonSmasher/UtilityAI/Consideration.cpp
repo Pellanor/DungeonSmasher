@@ -4,5 +4,7 @@
 #include "Consideration.h"
 
 
-
-
+float UConsideration::Evaluate() {
+	this->Score = this->TheUtilityFunction->Evaluate();
+	return this->Score;
+}

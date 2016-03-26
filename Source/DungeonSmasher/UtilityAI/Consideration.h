@@ -4,7 +4,7 @@
 
 #include "Object.h"
 #include "Action.h"
-#include "Evaluator.h"
+#include "UtilityFunction.h"
 #include "Consideration.generated.h"
 
 /**
@@ -19,8 +19,11 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (DisplayName = "Action", ExposeOnSpawn = true))
 	UAction* TheAction;
 
-	// UE4 Doesn't allow properties to be interfaces, so I'll need to cast this when I use it.
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (DisplayName = "Evaluator", ExposeOnSpawn = true))
-	UObject* TheEvaluator;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (DisplayName = "Utility Function", ExposeOnSpawn = true))
+	UUtilityFunction* TheUtilityFunction;
+
+	UPROPERTY(BlueprintReadOnly)
+	float Score = 0.0f;
 	
+	float Evaluate();
 };

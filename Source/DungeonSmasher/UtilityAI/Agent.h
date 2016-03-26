@@ -4,6 +4,7 @@
 
 #include "GameFramework/Character.h"
 #include "Consideration.h"
+#include "Action.h"
 #include "Agent.generated.h"
 
 UCLASS()
@@ -29,5 +30,7 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	TArray< TSubclassOf<UConsideration> > Considerations;
+
+	UAction* ChooseAction();
 
 };

@@ -3,6 +3,7 @@
 #pragma once
 
 #include "Object.h"
+#include "DungeonSmasherGameMode.h"
 
 #include "Action.generated.h"
 
@@ -19,7 +20,7 @@ class DUNGEONSMASHER_API UAction : public UObject
 	
 public:	
 	UFUNCTION(BlueprintImplementableEvent, meta = (DisplayName = "Execute the action using this agent"))
-	void DoAction(AAgent* ActingAgent);
+	void DoAction(AAgent* ActingAgent, ADungeonSmasherGameMode* CurrentGameMode);
 	
 	
 };
