@@ -18,7 +18,7 @@ enum class TILE_TYPE : uint8
 /**
  * 
  */
-UCLASS()
+UCLASS(Blueprintable)
 class DUNGEONSMASHER_API UMapTile : public UObject
 {
 	GENERATED_BODY()

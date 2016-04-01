@@ -16,13 +16,28 @@ AAgent::AAgent()
 void AAgent::BeginPlay()
 {
 	Super::BeginPlay();
-	
 }
 
 // Called every frame
 void AAgent::Tick( float DeltaTime )
 {
 	Super::Tick( DeltaTime );
+	if (++TickSincelastChoice >= ChooseEveryXTicks)
+	{
+		TickSincelastChoice = 0;
+		if (CurrentAction->RunningTime > CurrentAction->MinRunTime)
+		{
+			auto chosen_action = this->ChooseAction();
+			if (CurrentAction != chosen_action)
+			{
+				CurrentAction = chosen_action;
+				CurrentAction->DoAction(this, static_cast<ADungeonSmasherGameMode*>(GetWorld()->GetAuthGameMode()));
+			}
+			GetWorld()->GetTimeSeconds();
+		}
+	}
+	CurrentAction->ActionTick(this, static_cast<ADungeonSmasherGameMode*>(GetWorld()->GetAuthGameMode()), DeltaTime);
+
 
 }
 
@@ -35,15 +50,18 @@ void AAgent::SetupPlayerInputComponent(class UInputComponent* InputComponent)
 
 UAction* AAgent::ChooseAction()
 {
-	for (auto Con : this->Considerations)
-	{
-		Con.GetDefaultObject()->Evaluate();
+	if (this->Considerations.Num() > 0) {
+		for (auto Con : this->Considerations)
+		{
+			Con->Evaluate();
+		}
+
+		this->Considerations.Sort([](const UConsideration& lhs, const UConsideration& rhs)
+		{
+			return lhs.Score > rhs.Score;
+		});
+
+		return this->Considerations[0]->TheAction;
 	}
-
-	this->Considerations.Sort([](const TSubclassOf<UConsideration>& lhs, const TSubclassOf<UConsideration>& rhs)
-	{
-		return lhs.GetDefaultObject()->Score > rhs.GetDefaultObject()->Score;
-	});
-
-	return this->Considerations.GetData()->GetDefaultObject()->TheAction;
+	return this->CurrentAction;
 }

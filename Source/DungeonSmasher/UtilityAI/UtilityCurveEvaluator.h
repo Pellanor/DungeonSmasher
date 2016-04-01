@@ -18,7 +18,7 @@ class DUNGEONSMASHER_API UUtilityCurveEvaluator : public UObject, public IEvalua
 public:
 	float Evaluate(float Val);
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta = (ExposeOnSpawn = true))
 	UUtilityCurve* Curve;
 	
 };

@@ -29,8 +29,14 @@ public:
 	FVector GoalLocation;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	TArray< TSubclassOf<UConsideration> > Considerations;
+	TArray< UConsideration* > Considerations;
+
+	// Can't just use NewObject<UAction>() because it crashes the editor.
+	UAction* CurrentAction = static_cast<UAction*>(NewObject<UAction>()->GetClass()->GetDefaultObject());
 
 	UAction* ChooseAction();
+
+	int TickSincelastChoice = 0;
+	const int ChooseEveryXTicks = 10;
 
 };
